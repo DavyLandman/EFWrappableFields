@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFTestDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="EFTestDatabaseModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="EFTestDatabaseModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderDetails" EntityType="EFTestDatabaseModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="EFTestDatabaseModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductCategories" EntityType="EFTestDatabaseModel.Store.ProductCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="EFTestDatabaseModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_OrderDetails_Orders" Association="EFTestDatabaseModel.Store.FK_OrderDetails_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Products" Association="EFTestDatabaseModel.Store.FK_OrderDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategories_Categories" Association="EFTestDatabaseModel.Store.FK_ProductCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategories_Products" Association="EFTestDatabaseModel.Store.FK_ProductCategories_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Product" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Occurance" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="Product" />
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Product" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" />
+        </EntityType>
+        <Association Name="FK_OrderDetails_Orders">
+          <End Role="Orders" Type="EFTestDatabaseModel.Store.Orders" Multiplicity="1" />
+          <End Role="OrderDetails" Type="EFTestDatabaseModel.Store.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Identifier" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Products">
+          <End Role="Products" Type="EFTestDatabaseModel.Store.Products" Multiplicity="1" />
+          <End Role="OrderDetails" Type="EFTestDatabaseModel.Store.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Identifier" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategories_Categories">
+          <End Role="Categories" Type="EFTestDatabaseModel.Store.Categories" Multiplicity="1" />
+          <End Role="ProductCategories" Type="EFTestDatabaseModel.Store.ProductCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Identifier" />
+            </Principal>
+            <Dependent Role="ProductCategories">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategories_Products">
+          <End Role="Products" Type="EFTestDatabaseModel.Store.Products" Multiplicity="1" />
+          <End Role="ProductCategories" Type="EFTestDatabaseModel.Store.ProductCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Identifier" />
+            </Principal>
+            <Dependent Role="ProductCategories">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFTestDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="EFTestDatabaseEntities">
+          <EntitySet Name="Categories" EntityType="EFTestDatabaseModel.Category" />
+          <EntitySet Name="OrderDetails" EntityType="EFTestDatabaseModel.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="EFTestDatabaseModel.Order" />
+          <EntitySet Name="Products" EntityType="EFTestDatabaseModel.Product" />
+          <AssociationSet Name="FK_OrderDetails_Orders" Association="EFTestDatabaseModel.FK_OrderDetails_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Products" Association="EFTestDatabaseModel.FK_OrderDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="ProductCategories" Association="EFTestDatabaseModel.ProductCategories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="DbProducts" Relationship="EFTestDatabaseModel.ProductCategories" FromRole="Categories" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Order" Relationship="EFTestDatabaseModel.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="Product" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Occurance" Type="DateTime" Nullable="false" />
+          <Property Name="DbState" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="DbDetails" Relationship="EFTestDatabaseModel.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Identifier" />
+          </Key>
+          <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="OrderDetails" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="DbCategories" Relationship="EFTestDatabaseModel.ProductCategories" FromRole="Products" ToRole="Categories" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <Association Name="FK_OrderDetails_Orders">
+          <End Role="Orders" Type="EFTestDatabaseModel.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="EFTestDatabaseModel.OrderDetail" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_OrderDetails_Products">
+          <End Role="Products" Type="EFTestDatabaseModel.Product" Multiplicity="1" />
+          <End Role="OrderDetails" Type="EFTestDatabaseModel.OrderDetail" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductCategories">
+          <End Role="Categories" Type="EFTestDatabaseModel.Category" Multiplicity="*" />
+          <End Role="Products" Type="EFTestDatabaseModel.Product" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="EFTestDatabaseModelStoreContainer" CdmEntityContainer="EFTestDatabaseEntities">
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="EFTestDatabaseModel.Category"><MappingFragment StoreEntitySet="Categories">
+            <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails"><EntityTypeMapping TypeName="EFTestDatabaseModel.OrderDetail"><MappingFragment StoreEntitySet="OrderDetails">
+            <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="EFTestDatabaseModel.Order"><MappingFragment StoreEntitySet="Orders">
+            <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            <ScalarProperty Name="Occurance" ColumnName="Occurance" />
+            <ScalarProperty Name="DbState" ColumnName="State" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="EFTestDatabaseModel.Product"><MappingFragment StoreEntitySet="Products">
+            <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_OrderDetails_Orders" TypeName="EFTestDatabaseModel.FK_OrderDetails_Orders" StoreEntitySet="OrderDetails">
+            <EndProperty Name="Orders">
+              <ScalarProperty Name="Identifier" ColumnName="Order" />
+            </EndProperty>
+            <EndProperty Name="OrderDetails">
+              <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_OrderDetails_Products" TypeName="EFTestDatabaseModel.FK_OrderDetails_Products" StoreEntitySet="OrderDetails">
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Identifier" ColumnName="Product" />
+            </EndProperty>
+            <EndProperty Name="OrderDetails">
+              <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ProductCategories" TypeName="EFTestDatabaseModel.ProductCategories" StoreEntitySet="ProductCategories">
+            <EndProperty Name="Categories">
+              <ScalarProperty Name="Identifier" ColumnName="Category" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Identifier" ColumnName="Product" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TestModel">
+        <EntityTypeShape EntityType="EFTestDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="1.125" Height="1.7879850260416672" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFTestDatabaseModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFTestDatabaseModel.Order" Width="1.5" PointX="5.125" PointY="4.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFTestDatabaseModel.Product" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="EFTestDatabaseModel.FK_OrderDetails_Orders" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.9375" PointY="4.625" />
+          <ConnectorPoint PointX="5.9375" PointY="2.9129850260416656" />
+        </AssociationConnector>
+        <AssociationConnector Association="EFTestDatabaseModel.FK_OrderDetails_Products" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.0189925130208328" />
+          <ConnectorPoint PointX="5.25" PointY="2.0189925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="EFTestDatabaseModel.ProductCategories" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.0189925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.0189925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

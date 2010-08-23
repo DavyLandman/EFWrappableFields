@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpressionVisitor.cs" />
+    <Compile Include="ExtractMemberInfo.cs" />
     <Compile Include="IHaveFieldsWrapped.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WrappedFieldsMappingProvider.cs" />

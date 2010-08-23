@@ -11,8 +11,8 @@ namespace azM.EFWRappableFields.EF1Tests
 		[Fact]
 		public void TestThatEnumsCanBeSelected()
 		{
-			var container = new AdventureWorksLTEntities();
-			var collection = new WrappedFieldsObjectQuery<SalesOrderHeader>(container.SalesOrderHeaders);
+			var container = new EFTestDatabaseEntities();
+			var collection = new WrappedFieldsObjectQuery<Order>(container.Orders);
 			Assert.DoesNotThrow(() => collection.Select(soh => soh.Status).ToList());
 		}
 	}
