@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "FK_OrderDetails_Orders", "Orders", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(azM.EFWRappableFields.EF1Tests.Order), "OrderDetails", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(azM.EFWRappableFields.EF1Tests.OrderDetail))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "FK_OrderDetails_Products", "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(azM.EFWRappableFields.EF1Tests.Product), "OrderDetails", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(azM.EFWRappableFields.EF1Tests.OrderDetail))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "ProductCategories", "Categories", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(azM.EFWRappableFields.EF1Tests.Category), "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(azM.EFWRappableFields.EF1Tests.Product))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "FK_OrderDetails_Orders", "Orders", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EFExtensions.EFWRappableFields.EF1Tests.Order), "OrderDetails", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.OrderDetail))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "FK_OrderDetails_Products", "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EFExtensions.EFWRappableFields.EF1Tests.Product), "OrderDetails", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.OrderDetail))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "ProductCategories", "Categories", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.Category), "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.Product))]
 
 // Original file name:
-// Generation date: 23-8-2010 16:54:40
-namespace azM.EFWRappableFields.EF1Tests
+// Generation date: 24-8-2010 9:36:03
+namespace EFExtensions.EFWRappableFields.EF1Tests
 {
     
     /// <summary>

@@ -8,8 +8,8 @@
     <ProjectGuid>{BC9776C1-555A-44AC-BB18-450EBC958786}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>azM.EFWRappableFields</RootNamespace>
-    <AssemblyName>azM.EFWRappableFields</AssemblyName>
+    <RootNamespace>EFExtensions.EFWRappableFields</RootNamespace>
+    <AssemblyName>EFExtensions.EFWRappableFields</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace azM.EFWRappableFields
+namespace EFExtensions.EFWRappableFields
 {
 	public static class ExtractMemberInfo
 	{

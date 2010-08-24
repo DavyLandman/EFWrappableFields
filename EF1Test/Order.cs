@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace azM.EFWRappableFields.EF1Tests
+namespace EFExtensions.EFWRappableFields.EF1Tests
 {
 	public enum OrderState
 	{

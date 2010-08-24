@@ -8,7 +8,7 @@
     <ProjectGuid>{A6B9FE24-1309-495C-ACCE-31267EFDEA44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>azM.EFWRappableFields.EF1Tests</RootNamespace>
+    <RootNamespace>EFExtensions.EFWRappableFields.EF1Tests</RootNamespace>
     <AssemblyName>EF1Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

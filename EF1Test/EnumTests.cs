@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace azM.EFWRappableFields.EF1Tests
+namespace EFExtensions.EFWRappableFields.EF1Tests
 {
 	public class EnumTests
 	{

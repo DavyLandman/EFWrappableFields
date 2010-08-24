@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Data.Objects;
 using System.Collections;
 
-namespace azM.EFWRappableFields
+namespace EFExtensions.EFWRappableFields
 {
 	public class WrappedFieldsObjectQuery<T> : IOrderedQueryable<T>
 	{

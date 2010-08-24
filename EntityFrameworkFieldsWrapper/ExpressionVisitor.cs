@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Collections.ObjectModel;
 
-namespace azM.EFWRappableFields
+namespace EFExtensions.EFWRappableFields
 {
 	// retrieved from: http://msdn.microsoft.com/en-us/library/bb882521.aspx
 	// .NET 3.5 has this as a internal class, but .NET 4.0 has this as a public class, but

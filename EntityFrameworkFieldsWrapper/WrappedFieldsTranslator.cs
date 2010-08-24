@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 
-namespace azM.EFWRappableFields
+namespace EFExtensions.EFWRappableFields
 {
 	public class WrappedFieldsTranslator 
 	{
