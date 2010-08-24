@@ -23,5 +23,15 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 			get { return (OrderState)DbState; }
 			set { DbState = (int)value; }
 		}
+		public IEnumerable<OrderDetail> Details
+		{
+			get 
+			{
+				// Lazy loading in EF1
+				if (!DbDetails.IsLoaded && (EntityState != System.Data.EntityState.Detached && EntityState != System.Data.EntityState.Added))
+					DbDetails.Load();
+				return DbDetails; 
+			}
+		}
 	}
 }

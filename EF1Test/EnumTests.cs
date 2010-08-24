@@ -8,12 +8,25 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 {
 	public class EnumTests
 	{
-		[Fact]
-		public void TestThatEnumsCanBeSelected()
+		private static WrappedFieldsObjectQuery<Order> GetOrderSet()
 		{
 			var container = new EFTestDatabaseEntities();
 			var collection = new WrappedFieldsObjectQuery<Order>(container.Orders);
-			Assert.DoesNotThrow(() => collection.Select(soh => soh.Status).ToList());
+			return collection;
+		}
+
+		[Fact]
+		public void TestThatEnumsCanBeSelected()
+		{
+			var collection = GetOrderSet();
+			Assert.DoesNotThrow(() => collection.Select(soh => soh.Status).First());
+		}
+
+		[Fact]
+		public void TestThatEnumsCanBeFilteredOn()
+		{
+			var collection = GetOrderSet();
+			Assert.DoesNotThrow(() => collection.Where(soh => soh.Status == OrderState.Approved).First());
 		}
 	}
 }
