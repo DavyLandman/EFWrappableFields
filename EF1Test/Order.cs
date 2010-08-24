@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 
 namespace EFExtensions.EFWRappableFields.EF1Tests
 {
@@ -16,7 +17,7 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 		Cancelled = 6
 	}
 
-	public partial class Order
+	public partial class Order : IHaveFieldsWrapped
 	{
 		public OrderState Status
 		{
@@ -32,6 +33,15 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 					DbDetails.Load();
 				return DbDetails; 
 			}
+		}
+
+		public Dictionary<MemberInfo, MemberInfo> GetMappings()
+		{
+			return new Dictionary<MemberInfo, MemberInfo> 
+				{ 
+					{ExtractMemberInfo.From<Order>(o => o.Details), ExtractMemberInfo.From<Order>(o => o.DbDetails)},  
+					{ExtractMemberInfo.From<Order>(o => o.Status), ExtractMemberInfo.From<Order>(o => o.DbState)}
+				};
 		}
 	}
 }
