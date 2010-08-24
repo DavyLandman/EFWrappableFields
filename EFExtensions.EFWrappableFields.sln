@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkFieldsWrapper", "EntityFrameworkFieldsWrapper\EntityFrameworkFieldsWrapper.csproj", "{BC9776C1-555A-44AC-BB18-450EBC958786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkFieldsWrapper.EF1", "EntityFrameworkFieldsWrapper.EF1\EntityFrameworkFieldsWrapper.EF1.csproj", "{BC9776C1-555A-44AC-BB18-450EBC958786}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8607F1F-A1BD-4C13-B1FC-C090FFF1CF42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF1Test", "EF1Test\EF1Test.csproj", "{A6B9FE24-1309-495C-ACCE-31267EFDEA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkFieldsWrapper.EF4", "EntityFrameworkFieldsWrapper.EF4\EntityFrameworkFieldsWrapper.EF4.csproj", "{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF4Test", "EF4Test\EF4Test.csproj", "{9D6CFD47-5BB4-4CAD-9403-8453B3569635}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -24,6 +28,14 @@ Global
 		{A6B9FE24-1309-495C-ACCE-31267EFDEA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6B9FE24-1309-495C-ACCE-31267EFDEA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6B9FE24-1309-495C-ACCE-31267EFDEA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D6CFD47-5BB4-4CAD-9403-8453B3569635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D6CFD47-5BB4-4CAD-9403-8453B3569635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D6CFD47-5BB4-4CAD-9403-8453B3569635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D6CFD47-5BB4-4CAD-9403-8453B3569635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

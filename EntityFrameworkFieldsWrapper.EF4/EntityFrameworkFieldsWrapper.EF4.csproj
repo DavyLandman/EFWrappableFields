@@ -5,13 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BC9776C1-555A-44AC-BB18-450EBC958786}</ProjectGuid>
+    <ProjectGuid>{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EFExtensions.EFWRappableFields</RootNamespace>
-    <AssemblyName>EFExtensions.EFWRappableFields</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AssemblyName>EFExtensions.EFWRappableFields.EF4</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,17 +35,27 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressionVisitor.cs" />
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\ExpressionVisitor.cs">
+      <Link>ExpressionVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsMappingProvider.cs">
+      <Link>WrappedFieldsMappingProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsObjectQuery.cs">
+      <Link>WrappedFieldsObjectQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsTranslator.cs">
+      <Link>WrappedFieldsTranslator.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WrappedFieldsMappingProvider.cs" />
-    <Compile Include="WrappedFieldsObjectQuery.cs" />
-    <Compile Include="WrappedFieldsTranslator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
