@@ -10,11 +10,12 @@ namespace EFExtensions.EFWRappableFields
 	{
 		// 
 		private static Dictionary<Type, Dictionary<MemberInfo, MemberInfo>> mappingCache = new Dictionary<Type, Dictionary<MemberInfo, MemberInfo>>();
+		private static BindingFlags defaultFieldFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+		private const String wrappingPrefix = "Db";
 
 		public static void InitializeFrom(Assembly assembly)
 		{
-			var type = typeof(IHaveFieldsWrapped);
-			foreach (var wrappedType in assembly.GetTypes().Where(p => type.IsAssignableFrom(p) && !p.IsAbstract))
+			foreach (var wrappedType in assembly.GetTypes().Where(p => !p.IsAbstract && p.GetProperties(defaultFieldFlags).Any(f => f.Name.StartsWith(wrappingPrefix))))
 			{
 				mappingCache[wrappedType] = GetMappingsFor(wrappedType);
 			}
@@ -22,11 +23,16 @@ namespace EFExtensions.EFWRappableFields
 
 		private static Dictionary<MemberInfo, MemberInfo> GetMappingsFor(Type wrappedType)
 		{
-			var objectWithWrappedProperties = Activator.CreateInstance(wrappedType) as IHaveFieldsWrapped;
-			if (objectWithWrappedProperties == null)
-				return new Dictionary<MemberInfo, MemberInfo>();
-			else
-				return objectWithWrappedProperties.GetMappings();
+			var result = new Dictionary<MemberInfo, MemberInfo>();
+			foreach (var wrappedField in wrappedType.GetProperties(defaultFieldFlags).Where(p => p.Name.StartsWith(wrappingPrefix)))
+			{
+				var wrappingField = wrappedType.GetProperties(defaultFieldFlags).FirstOrDefault(p => p.Name == wrappedField.Name.Substring(wrappingPrefix.Length));
+				if (wrappingField != null)
+				{
+					result.Add(wrappingField, wrappedField);
+				}
+			}
+			return result;
 		}
 
 
