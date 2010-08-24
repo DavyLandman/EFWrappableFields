@@ -43,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\EntityFrameworkFieldsWrapper\ExpressionVisitor.cs">
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\ExpressionVisitor.cs">
       <Link>ExpressionVisitor.cs</Link>
     </Compile>
-    <Compile Include="..\EntityFrameworkFieldsWrapper\WrappedFieldsMappingProvider.cs">
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsMappingProvider.cs">
       <Link>WrappedFieldsMappingProvider.cs</Link>
     </Compile>
-    <Compile Include="..\EntityFrameworkFieldsWrapper\WrappedFieldsObjectQuery.cs">
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsObjectQuery.cs">
       <Link>WrappedFieldsObjectQuery.cs</Link>
     </Compile>
-    <Compile Include="..\EntityFrameworkFieldsWrapper\WrappedFieldsTranslator.cs">
+    <Compile Include="..\EntityFrameworkFieldsWrapper.EF1\WrappedFieldsTranslator.cs">
       <Link>WrappedFieldsTranslator.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

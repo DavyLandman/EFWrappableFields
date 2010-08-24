@@ -68,7 +68,7 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameworkFieldsWrapper\EntityFrameworkFieldsWrapper.EF1.csproj">
+    <ProjectReference Include="..\EntityFrameworkFieldsWrapper.EF1\EntityFrameworkFieldsWrapper.EF1.csproj">
       <Project>{BC9776C1-555A-44AC-BB18-450EBC958786}</Project>
       <Name>EntityFrameworkFieldsWrapper.EF1</Name>
     </ProjectReference>
