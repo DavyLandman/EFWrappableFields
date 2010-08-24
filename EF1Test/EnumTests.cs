@@ -28,5 +28,13 @@ namespace EFExtensions.EFWRappableFields.EFTests
 			var collection = GetOrderSet();
 			Assert.DoesNotThrow(() => collection.Where(soh => soh.Status == OrderState.Approved).First());
 		}
+
+		[Fact]
+		public void TestThatFilteredEnumRetrieveTheCorrectOrder()
+		{
+			var collection = GetOrderSet();
+			Assert.Equal(OrderState.Approved, collection.Where(s => s.Status == OrderState.Approved).First().Status);
+		}
+
 	}
 }

@@ -38,5 +38,13 @@ namespace EFExtensions.EFWRappableFields.EFTests
 			var detail = collection.First().Details.First();
 			Assert.DoesNotThrow(() => collection.Where(soh => soh.Details.Any(d => d.Identifier == detail.Identifier)).First());
 		}
+
+		[Fact]
+		public void TestCollectionContainsFilterWorks()
+		{
+			var collection = GetOrderSet();
+			var detail = collection.First().Details.First();
+			Assert.Contains(detail, collection.Where(soh => soh.Details.Any(d => d.Identifier == detail.Identifier)).First().Details);
+		}
 	}
 }
