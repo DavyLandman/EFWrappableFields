@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EFExtensions.EFWRappableFields</RootNamespace>
-    <AssemblyName>EFExtensions.EFWRappableFields</AssemblyName>
+    <AssemblyName>EFExtensions.EFWRappableFields.EF1</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
