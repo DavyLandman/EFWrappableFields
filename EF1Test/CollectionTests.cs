@@ -36,7 +36,7 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 		{
 			var collection = GetOrderSet();
 			var detail = collection.First().Details.First();
-			Assert.DoesNotThrow(() => collection.Where(soh => soh.Details.Contains(detail)).First());
+			Assert.DoesNotThrow(() => collection.Where(soh => soh.Details.Any(d => d.Identifier == detail.Identifier)).First());
 		}
 	}
 }
