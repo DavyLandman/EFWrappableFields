@@ -72,13 +72,15 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EntityFrameworkFieldsWrapper.EF4\EntityFrameworkFieldsWrapper.EF4.csproj">
       <Project>{86BE0307-F7B5-4E40-BEC4-BD89E2DAC583}</Project>
       <Name>EntityFrameworkFieldsWrapper.EF4</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\EF1Test\App.Config">
+      <Link>App.Config</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
