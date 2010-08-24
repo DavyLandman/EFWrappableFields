@@ -11,3 +11,28 @@ For more details of this extension see:
 
   - [Landman Code: Adding support for enum properties on your entities in Entity Framework](http://landman-code.blogspot.com/2010/08/adding-support-for-enum-properties-on.html)
   - [Landman Code: Protection your EntityCollections from outside abuse by wrapping them as IEnumerable](http://landman-code.blogspot.com/2010/08/protection-your-entitycollections-from.html)
+
+Usage
+----------
+To use the Wrappable Fields extension, add a reference to the assembly, and in the place were you would normally start with filtering your EntitySet/ObjectQuery/IQueryable you have to wrap that collection with a  `WrappedFieldsObjectQuery` object.
+
+So what used to be:
+
+    var context = new EFTestDatabaseEntities();
+    var orders = from o in context.Orders
+       where o.Status == OrderState.Shipped
+       select o;
+
+Now has to become:
+
+    var context = new EFTestDatabaseEntities();
+    var orders = from o in new WrappedFieldsObjectQuery<Order>(context.Orders)
+       where o.Status == OrderState.Shipped
+       select o;
+
+While this looks like a big impact, you should really model your application such that you aren't writing these queries everywhere.
+
+Developing
+------------
+If you want to fork this project and add some feature, use the `EF1Test/TestDatabase.sql` script to generate and fill the database and correct the connection string if needed.
+
