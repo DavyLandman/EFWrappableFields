@@ -21,8 +21,8 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 	{
 		public OrderState Status
 		{
-			get { return (OrderState)DbState; }
-			set { DbState = (int)value; }
+			get { return (OrderState)DbStatus; }
+			set { DbStatus = (int)value; }
 		}
 		public IEnumerable<OrderDetail> Details
 		{

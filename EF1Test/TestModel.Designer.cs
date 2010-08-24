@@ -14,7 +14,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "ProductCategories", "Categories", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.Category), "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EF1Tests.Product))]
 
 // Original file name:
-// Generation date: 24-8-2010 9:36:03
+// Generation date: 24-8-2010 12:02:13
 namespace EFExtensions.EFWRappableFields.EF1Tests
 {
     
@@ -515,32 +515,32 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnOccuranceChanged();
         /// <summary>
-        /// There are no comments for property DbState in the schema.
+        /// There are no comments for property DbStatus in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private int DbState
+        private int DbStatus
         {
             get
             {
-                return this._DbState;
+                return this._DbStatus;
             }
             set
             {
-                this.OnDbStateChanging(value);
-                this.ReportPropertyChanging("DbState");
-                this._DbState = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("DbState");
-                this.OnDbStateChanged();
+                this.OnDbStatusChanging(value);
+                this.ReportPropertyChanging("DbStatus");
+                this._DbStatus = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("DbStatus");
+                this.OnDbStatusChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private int _DbState;
+        private int _DbStatus;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDbStateChanging(int value);
+        partial void OnDbStatusChanging(int value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnDbStateChanged();
+        partial void OnDbStatusChanged();
         /// <summary>
         /// There are no comments for DbDetails in the schema.
         /// </summary>
