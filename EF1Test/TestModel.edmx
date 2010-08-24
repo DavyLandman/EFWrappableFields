@@ -165,7 +165,7 @@
           </Key>
           <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Occurance" Type="DateTime" Nullable="false" />
-          <Property Name="DbState" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <Property Name="DbStatus" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
           <NavigationProperty Name="DbDetails" Relationship="EFTestDatabaseModel.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
         </EntityType>
         <EntityType Name="Product">
@@ -209,7 +209,7 @@
           <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="EFTestDatabaseModel.Order"><MappingFragment StoreEntitySet="Orders">
             <ScalarProperty Name="Identifier" ColumnName="Identifier" />
             <ScalarProperty Name="Occurance" ColumnName="Occurance" />
-            <ScalarProperty Name="DbState" ColumnName="State" />
+            <ScalarProperty Name="DbStatus" ColumnName="State" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="EFTestDatabaseModel.Product"><MappingFragment StoreEntitySet="Products">
             <ScalarProperty Name="Identifier" ColumnName="Identifier" />

@@ -17,12 +17,12 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 		Cancelled = 6
 	}
 
-	public partial class Order : IHaveFieldsWrapped
+	public partial class Order
 	{
 		public OrderState Status
 		{
-			get { return (OrderState)DbState; }
-			set { DbState = (int)value; }
+			get { return (OrderState)DbStatus; }
+			set { DbStatus = (int)value; }
 		}
 		public IEnumerable<OrderDetail> Details
 		{
@@ -33,15 +33,6 @@ namespace EFExtensions.EFWRappableFields.EF1Tests
 					DbDetails.Load();
 				return DbDetails; 
 			}
-		}
-
-		public Dictionary<MemberInfo, MemberInfo> GetMappings()
-		{
-			return new Dictionary<MemberInfo, MemberInfo> 
-				{ 
-					{ExtractMemberInfo.From<Order>(o => o.Details), ExtractMemberInfo.From<Order>(o => o.DbDetails)},  
-					{ExtractMemberInfo.From<Order>(o => o.Status), ExtractMemberInfo.From<Order>(o => o.DbState)}
-				};
 		}
 	}
 }
