@@ -32,6 +32,8 @@ Now has to become:
 
 While this looks like a big impact, you should really model your application such that you aren't writing these queries everywhere.
 
+In order for this to work the library tries to find if there is a Property with a `Db` prefix for the property used and replaces it. So the `DbStatus` is in the entity model but hidden, and the `Status` field is the public visible property.
+
 Developing
 ------------
 If you want to fork this project and add some feature, use the `EF1Test/TestDatabase.sql` script to generate and fill the database and correct the connection string if needed.
