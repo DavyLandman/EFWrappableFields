@@ -52,6 +52,7 @@
     <Compile Include="EnumTests.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestConcurrency.cs" />
     <Compile Include="TestModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
