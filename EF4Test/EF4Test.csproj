@@ -55,8 +55,20 @@
     <Compile Include="..\EF1Test\EnumTests.cs">
       <Link>EnumTests.cs</Link>
     </Compile>
+    <Compile Include="..\EF1Test\NestedWrappedFieldsTests.cs">
+      <Link>NestedWrappedFieldsTests.cs</Link>
+    </Compile>
     <Compile Include="..\EF1Test\Order.cs">
       <Link>Order.cs</Link>
+    </Compile>
+    <Compile Include="..\EF1Test\OrderDetail.cs">
+      <Link>OrderDetail.cs</Link>
+    </Compile>
+    <Compile Include="..\EF1Test\Product.cs">
+      <Link>Product.cs</Link>
+    </Compile>
+    <Compile Include="..\EF1Test\TestConcurrency.cs">
+      <Link>TestConcurrency.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestModel.Designer.cs">

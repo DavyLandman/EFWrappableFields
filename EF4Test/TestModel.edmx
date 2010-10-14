@@ -156,10 +156,10 @@
           </Key>
           <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Order" Type="Int32" Nullable="false" />
-          <Property Name="Product" Type="Int32" Nullable="false" />
+          <Property Name="ProductIdentifier" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
           <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="Order1" Relationship="EFTestDatabaseModel.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
-          <NavigationProperty Name="Product1" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="DbProduct" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -201,7 +201,7 @@
               <PropertyRef Name="Identifier" />
             </Principal>
             <Dependent Role="OrderDetails">
-              <PropertyRef Name="Product" />
+              <PropertyRef Name="ProductIdentifier" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -223,7 +223,7 @@
           <EntitySetMapping Name="OrderDetails"><EntityTypeMapping TypeName="EFTestDatabaseModel.OrderDetail"><MappingFragment StoreEntitySet="OrderDetails">
             <ScalarProperty Name="Identifier" ColumnName="Identifier" />
             <ScalarProperty Name="Order" ColumnName="Order" />
-            <ScalarProperty Name="Product" ColumnName="Product" />
+            <ScalarProperty Name="ProductIdentifier" ColumnName="Product" />
             <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="EFTestDatabaseModel.Order"><MappingFragment StoreEntitySet="Orders">

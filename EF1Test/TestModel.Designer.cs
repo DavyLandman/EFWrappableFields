@@ -14,7 +14,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("EFTestDatabaseModel", "ProductCategories", "Categories", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EFTests.Category), "Products", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EFExtensions.EFWRappableFields.EFTests.Product))]
 
 // Original file name:
-// Generation date: 24-8-2010 13:37:48
+// Generation date: 14-10-2010 9:19:20
 namespace EFExtensions.EFWRappableFields.EFTests
 {
     
@@ -397,37 +397,37 @@ namespace EFExtensions.EFWRappableFields.EFTests
             }
         }
         /// <summary>
-        /// There are no comments for Product in the schema.
+        /// There are no comments for DbProduct in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("EFTestDatabaseModel", "FK_OrderDetails_Products", "Products")]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public Product Product
+        private Product DbProduct
         {
             get
             {
                 return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products").Value;
             }
-            private set
+            set
             {
                 ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products").Value = value;
             }
         }
         /// <summary>
-        /// There are no comments for Product in the schema.
+        /// There are no comments for DbProduct in the schema.
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<Product> ProductReference
+        private global::System.Data.Objects.DataClasses.EntityReference<Product> DbProductReference
         {
             get
             {
                 return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products");
             }
-            private set
+            set
             {
                 if ((value != null))
                 {

@@ -157,7 +157,7 @@
           <Property Name="Identifier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="Order" Relationship="EFTestDatabaseModel.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
-          <NavigationProperty Name="Product" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="DbProduct" Relationship="EFTestDatabaseModel.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Private" />
         </EntityType>
         <EntityType Name="Order">
           <Key>

@@ -456,14 +456,12 @@ namespace EFExtensions.EFWRappableFields.EFTests
         /// </summary>
         /// <param name="identifier">Initial value of the Identifier property.</param>
         /// <param name="order">Initial value of the Order property.</param>
-        /// <param name="product">Initial value of the Product property.</param>
         /// <param name="quantity">Initial value of the Quantity property.</param>
-        public static OrderDetail CreateOrderDetail(global::System.Int32 identifier, global::System.Int32 order, global::System.Int32 product, global::System.Decimal quantity)
+        public static OrderDetail CreateOrderDetail(global::System.Int32 identifier, global::System.Int32 order, global::System.Decimal quantity)
         {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.Identifier = identifier;
             orderDetail.Order = order;
-            orderDetail.Product = product;
             orderDetail.Quantity = quantity;
             return orderDetail;
         }
@@ -527,24 +525,24 @@ namespace EFExtensions.EFWRappableFields.EFTests
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Product
+        private global::System.Int32 ProductIdentifier
         {
             get
             {
-                return _Product;
+                return _ProductIdentifier;
             }
             set
             {
-                OnProductChanging(value);
-                ReportPropertyChanging("Product");
-                _Product = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Product");
-                OnProductChanged();
+                OnProductIdentifierChanging(value);
+                ReportPropertyChanging("ProductIdentifier");
+                _ProductIdentifier = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProductIdentifier");
+                OnProductIdentifierChanged();
             }
         }
-        private global::System.Int32 _Product;
-        partial void OnProductChanging(global::System.Int32 value);
-        partial void OnProductChanged();
+        private global::System.Int32 _ProductIdentifier;
+        partial void OnProductIdentifierChanging(global::System.Int32 value);
+        partial void OnProductIdentifierChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -619,13 +617,13 @@ namespace EFExtensions.EFWRappableFields.EFTests
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("EFTestDatabaseModel", "FK_OrderDetails_Products", "Products")]
-        public Product Product1
+        private Product DbProduct
         {
             get
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products").Value;
             }
-            private set
+            set
             {
                 ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products").Value = value;
             }
@@ -635,13 +633,13 @@ namespace EFExtensions.EFWRappableFields.EFTests
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Product> Product1Reference
+        private EntityReference<Product> DbProductReference
         {
             get
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("EFTestDatabaseModel.FK_OrderDetails_Products", "Products");
             }
-            private set
+            set
             {
                 if ((value != null))
                 {
