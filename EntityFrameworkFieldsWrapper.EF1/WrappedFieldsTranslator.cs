@@ -30,7 +30,7 @@ namespace EFExtensions.EFWRappableFields
 				var possiblyWrappedMember = WrappedFieldsMappingProvider.GetAvailableMapping(m.Member.DeclaringType, m.Member);
 				if (possiblyWrappedMember != null)
 				{
-					return Expression.MakeMemberAccess(m.Expression, possiblyWrappedMember);
+					m = Expression.MakeMemberAccess(m.Expression, possiblyWrappedMember);
 				}
 				return base.VisitMemberAccess(m);
 			}
