@@ -49,6 +49,8 @@ namespace EFExtensions.EFWRappableFields
 
 		public static MemberInfo GetAvailableMapping(Type forType, MemberInfo wrappedProperty)
 		{
+			if (!forType.IsClass || forType.IsAbstract || !forType.IsSubclassOf(typeof(System.Data.Objects.DataClasses.EntityObject)))
+				return null;
 			Dictionary<MemberInfo, MemberInfo> mappingForType = null;
 			protectMappingCache.EnterReadLock(); // not using upgradable read lock because there can only be one thread using that.
 			try
@@ -61,8 +63,6 @@ namespace EFExtensions.EFWRappableFields
 					{
 						if (!mappingCache.ContainsKey(forType)) // check if during the lock switch anything changed.
 						{
-							if (!forType.IsClass || forType.IsAbstract || !forType.IsSubclassOf(typeof(System.Data.Objects.DataClasses.EntityObject)))
-								return null;
 							mappingCache.Add(forType, GetMappingsFor(forType));
 						}
 					}
